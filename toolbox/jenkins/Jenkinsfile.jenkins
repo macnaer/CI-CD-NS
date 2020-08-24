@@ -16,14 +16,17 @@ pipeline  {
                 echo 'Creating docker image ...'
                 dir('.'){
                     //sh "docker build -t macnaer/chatterboxserver . "
+                    sh '''
                     apt install python3
                     apt install python3-pip
                     pip3 install virtualenv
                     python3 -m venv env
                     source env/bin/activate
                     pip3  -r install requirements.txt
-                    start.py
+                    start.py 
+
                     echo "First step works..."
+                    '''
                 }
             }
         }
