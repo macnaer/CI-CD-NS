@@ -17,6 +17,7 @@ pipeline  {
                 dir('.'){
                     //sh "docker build -t macnaer/chatterboxserver . "
                     sh '''
+                    apt update
                     apt install python3
                     apt install python3-pip
                     pip3 install -r requirements.txt
