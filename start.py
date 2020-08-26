@@ -15,8 +15,10 @@ def get_data(URL):
 
 
 def save_to_s3():
-    bucketname = input("Enter bucket name to upload > ")
-    file_name = input("Enter file name to upload > ")
+    # bucketname = input("Enter bucket name to upload > ")
+    bucketname = "currency-u"
+    # file_name = input("Enter file name to upload > ")
+    file_name = "currency.txt"
     s3 = boto3.client('s3')
     s3.upload_file(file_name, bucketname, file_name)
 
