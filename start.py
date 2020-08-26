@@ -27,7 +27,7 @@ def save_to_s3():
 
 
 def save_to_currency_file(data):
-    with open(FILENAME, "w") as file:
+    with open(FILENAME, "a+") as file:
         for item in data:
             file.write(item["ccy"] + " " + item["base_ccy"] +
                        " " + item["buy"] + " " + item["sale"] + "\n")
