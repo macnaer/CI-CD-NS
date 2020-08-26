@@ -1,4 +1,6 @@
 import requests
+from boto3.session import Session
+import boto3
 
 FILENAME = "currency.txt"
 
@@ -12,12 +14,20 @@ def get_data(URL):
     show_currencies(data)
 
 
+def save_to_s3():
+    bucketname = input("Enter bucket name to upload > ")
+    file_name = input("Enter file name to upload > ")
+    s3 = boto3.client('s3')
+    s3.upload_file(file_name, bucketname, file_name)
+
+
 def save_to_currency_file(data):
     print("dtata => ", data)
     with open(FILENAME, "w") as file:
         for item in data:
             file.write(item["ccy"] + " " + item["base_ccy"] +
                        " " + item["buy"] + " " + item["sale"] + "\n")
+    save_to_s3()
 
 
 def show_currencies(currency):
