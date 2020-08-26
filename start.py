@@ -10,6 +10,7 @@ URL = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
 def get_data(URL):
     responce = requests.get(URL)
     data = responce.json()
+    print("data => ", data)
     print("Try to save file")
     save_to_currency_file(data)
     print("Try to show data")
