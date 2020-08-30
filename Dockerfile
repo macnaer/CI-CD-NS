@@ -6,4 +6,4 @@ WORKDIR /home/dfo
 COPY . /home/dfo
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python", "start.py"]
+# ENTRYPOINT ["python", "start.py"]
