@@ -4,8 +4,6 @@ MAINTAINER macnaer
 
 WORKDIR /home/dfo
 COPY . /home/dfo
-RUN pwd
-RUN cd /home/dfo && pwd
-RUN pip install -r requrements.txt
+RUN pip install -r requirements.txt
 
 ENTRYPOINT ["start.py"]
