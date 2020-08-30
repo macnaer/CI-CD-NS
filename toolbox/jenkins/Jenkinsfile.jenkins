@@ -16,13 +16,11 @@ pipeline  {
                 echo 'Creating docker image ...'
                 dir('.'){
                     //sh "docker build -t macnaer/chatterboxserver . "
-                    echo "First step works"
-                    // sh '''
-                  
-                    // pip3 install -r requirements.txt
-                    // python3 start.py 
+                    sh '''
+                    pip3 install -r requirements.txt
+                    python3 start.py 
 
-                    // '''
+                    '''
                 }
             }
         }
