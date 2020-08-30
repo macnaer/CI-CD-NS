@@ -3,7 +3,7 @@ FROM python:latest
 MAINTAINER macnaer
 
 RUN apt update -y && apt-get install -y awscli
-RUN cd ~ && pwd && ls -l
+RUN cd ~ && cd .aws/ && pwd && ls -l
 COPY . /root/.aws
 WORKDIR /home/dfo
 COPY . /home/dfo
