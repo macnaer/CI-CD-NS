@@ -1,6 +1,7 @@
 import requests
 from boto3.session import Session
 import boto3
+import time
 
 FILENAME = "currency.txt"
 
@@ -41,4 +42,10 @@ def show_currencies(currency):
               " " + item["buy"] + " | " + item["sale"])
 
 
-get_data(URL)
+counter = 0
+while True:
+    counter+=1
+    print("Get online data => ", counter, " times")
+    get_data(URL)
+    time.sleep(300)
+
