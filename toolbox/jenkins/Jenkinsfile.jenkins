@@ -58,7 +58,7 @@ pipeline  {
                echo " ============== starting chatterbox server =================="
                 withCredentials([usernamePassword(credentialsId: 'AWS-Credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                sh '''
-               docker -e AWS_ACCESS_KEY_ID=$USERNAME -e AWS_SECRET_ACCESS_KEY=$PASSWORD run -d --restart=always --name dfo macnaer/dfo
+               docker run -e AWS_ACCESS_KEY_ID=$USERNAME -e AWS_SECRET_ACCESS_KEY=$PASSWORD -d --restart=always --name dfo macnaer/dfo
                '''
                 }
            }
