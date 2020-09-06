@@ -37,30 +37,31 @@ pipeline  {
                '''
            }
        }
-      //  stage("docker stop") {
-       //     steps {
-       //         echo " ============== stoping all images =================="
-      //          sh '''
-      //          docker stop chatterboxserver
-      //          '''
-      //      }
-      //  }
-      //  stage("docker remove") {
-      //      steps {
-      //          echo " ============== removing all docker containers =================="
-       //         sh '''
-       //         docker rm chatterboxserver
-       //         '''
-        //    }
-       // }
-      //  stage("docker run") {
-      //      steps {
-       //         echo " ============== starting chatterbox server =================="
-       //         sh '''
-        //        docker run -d --restart=always --name chatterboxserver -p 3200:3200 macnaer/chatterboxserver
-        //        '''
-        //    }
-        //}
+       stage("docker stop") {
+           steps {
+               echo " ============== stoping all images =================="
+               sh '''
+               docker stop dfo
+               '''
+           }
+       }
+       stage("docker remove") {
+           steps {
+               echo " ============== removing all docker containers =================="
+               sh '''
+               docker rm dfo
+               '''
+           }
+       }
+       stage("docker run") {
+           steps {
+               echo " ============== starting chatterbox server =================="
+                withCredentials([usernamePassword(credentialsId: 'AWS-Credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+               sh '''
+               docker -e AWS_ACCESS_KEY_ID=$USERNAME -e AWS_SECRET_ACCESS_KEY=$PASSWORD run -d --restart=always --name dfo macnaer/dfo
+               '''
+           }
+        }
         // stage("Deploy to stage server") {
         //     steps {
         //         echo " ============== Running playbook =================="
