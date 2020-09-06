@@ -60,6 +60,7 @@ pipeline  {
                sh '''
                docker -e AWS_ACCESS_KEY_ID=$USERNAME -e AWS_SECRET_ACCESS_KEY=$PASSWORD run -d --restart=always --name dfo macnaer/dfo
                '''
+                }
            }
         }
         // stage("Deploy to stage server") {
