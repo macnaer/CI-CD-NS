@@ -6,6 +6,8 @@ chardet==3.0.4
 docutils==0.15.2
 idna==2.10
 jmespath==0.10.0
+mysql-connector-python==8.0.21
+protobuf==3.13.0
 pycodestyle==2.6.0
 python-dateutil==2.8.1
 requests==2.24.0
